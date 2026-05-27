@@ -2,10 +2,10 @@
 
 Shared Python helpers for ADA services.
 
-## Install from a private Git repository
+## Install
 
 ```bash
-pip install "ada-common @ git+ssh://git@github.com/<org>/ada-common.git@v0.1.0"
+pip install "ada-common @ git+https://github.com/ral-facilities/ada-common.git@v0.1.0"
 ```
 
 ## Env injection
@@ -13,7 +13,7 @@ pip install "ada-common @ git+ssh://git@github.com/<org>/ada-common.git@v0.1.0"
 ```python
 from ada_common.config import EnvVarInjector
 
-EnvVarInjector(repo_name="ada-api").inject_all()
+EnvVarInjector(service_name="ada-api").inject_all()
 ```
 
 ## Logging helpers
