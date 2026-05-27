@@ -35,6 +35,10 @@ class EnvVarInjector:  # pylint: disable=too-few-public-methods
             self._load_if_exists(self.config_dir / "config.env.prod")
             return
 
+        if self.env == "k8s":
+            self._load_if_exists(self.config_dir / "config.default")
+            return
+
         self._inject_env_specific_vars()
         self._load_if_exists(self.config_dir / "config.local")
         self._load_if_exists(self.config_dir / "config.default")
