@@ -31,5 +31,7 @@ def initialise_file_config_logging(
         print(f"{file_name} not found in {Path(system_location) / service_name}/ or locally")
         sys.exit(1)
 
-    logging.config.fileConfig(log_ini_path)
+    # disable_existing_loggers=False so loggers created before this call (module-level
+    # loggers, EnvVarInjector's own logger) keep working instead of being silenced.
+    logging.config.fileConfig(log_ini_path, disable_existing_loggers=False)
 
