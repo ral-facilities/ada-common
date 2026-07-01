@@ -30,6 +30,7 @@ def initialise_file_config_logging(
     if not log_ini_path:
         print(f"{file_name} not found in {Path(system_location) / service_name}/ or locally")
         sys.exit(1)
+    print("Loading logging configuration from: ", log_ini_path)
 
     logging.config.fileConfig(log_ini_path)
 
